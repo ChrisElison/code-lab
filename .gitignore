@@ -1,0 +1,17 @@
+*.class
+*.out
+*.bak
+*.exe
+.env
+*.env
+secret.*
+secrets.*
+*.obj
+*.o
+*.a
+*.tmp
+*.log
+*.lib
+*.jar
+*.so
+*.hex
