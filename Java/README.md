@@ -16,6 +16,8 @@ written by me, an inexperienced, amateur - you have been warned :-)
 ## Contents:
 * 📁 **BattleShips**
     * Maybe a bit ambitious, but I want to try and make a BattleShips GUI game in Java, not sure how, though
+* 📁 **ButtonsTest**
+    * Add buttons to a Java GUI, do something when they are clicked, practice for my Hangman game! Demonstrates extending classes, JButtons, JFrames and JPanels
 * 📁 **Fibonacci**
     * Calculating some numbers in the Fibonacci sequence and outputting the result
 * 📁 **ReadTextFileTest**
