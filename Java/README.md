@@ -20,6 +20,8 @@ written by me, an inexperienced, amateur - you have been warned :-)
     * Add buttons to a Java GUI, do something when they are clicked, practice for my Hangman game! Demonstrates extending classes, JButtons, JFrames and JPanels
 * 📁 **Fibonacci**
     * Calculating some numbers in the Fibonacci sequence and outputting the result
+* 📁 **MenuTest**
+    * Testing adding a menu to a GUI program
 * 📁 **ReadTextFileTest**
     * Reading an external text file of words and saving the contents into an ArrayList
 * 📁 **Tests**

@@ -79,7 +79,7 @@ public class ButtonsTest extends JFrame {
         System.out.println("doSomething() called!");    
     }
     
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         new ButtonsTest();
         //System.out.println("Hello!");
     }
