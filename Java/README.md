@@ -11,7 +11,7 @@ to be able to find this repo and find something useful they can use.
 
 Most of what I've learned about Java is from books or from searching the web, some of this code
 may use outdated techniques or may be completely wrong, as with everything in this repo it's all
-written by me, an inexperienced, amateur - you have been warned :-)
+written by me, an inexperienced amateur - you have been warned :-)
 
 ## Contents:
 * 📁 **BattleShips**
@@ -20,6 +20,8 @@ written by me, an inexperienced, amateur - you have been warned :-)
     * Add buttons to a Java GUI, do something when they are clicked, practice for my Hangman game! Demonstrates extending classes, JButtons, JFrames and JPanels
 * 📁 **Fibonacci**
     * Calculating some numbers in the Fibonacci sequence and outputting the result
+* 📁 **HashMapTest**
+    * Testing HashMaps to represent a player's inventory in Java, they're basically associative array, very useful
 * 📁 **MenuTest**
     * Testing adding a menu to a GUI program
 * 📁 **ReadTextFileTest**
