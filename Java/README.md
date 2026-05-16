@@ -24,6 +24,8 @@ written by me, an inexperienced amateur - you have been warned :-)
     * Testing HashMaps to represent a player's inventory in Java, they're basically associative array, very useful
 * 📁 **MenuTest**
     * Testing adding a menu to a GUI program
+* 📁 **PaintComponentTest**
+    * GUI program with slider that makes text bigger or smalller, uses Graphics2D/drawString to render text
 * 📁 **ReadTextFileTest**
     * Reading an external text file of words and saving the contents into an ArrayList
 * 📁 **Tests**
