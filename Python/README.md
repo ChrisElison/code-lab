@@ -7,6 +7,8 @@ I quite like the language, it's very easy to do stuff that would ordinarily take
 other languages like C or Java.
 
 ## Contents:
+* 📁 **GDParser**
+    * Reads a Grim Dawn savefile. I used Grok to convert my C# GDParser code to Python - it works, need to add to it, though
 * 📄 **array-function-greeter.py**
     * Demonstrates passing a value from an array to a function in a loop
 * 📄 **array-lists-examples.py**

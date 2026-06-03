@@ -28,5 +28,7 @@ written by me, an inexperienced amateur - you have been warned :-)
     * GUI program with slider that makes text bigger or smalller, uses Graphics2D/drawString to render text
 * 📁 **ReadTextFileTest**
     * Reading an external text file of words and saving the contents into an ArrayList
+* 📁 **ScannerInputTest**
+    * Reading a string and an integer using Scanner class
 * 📁 **Tests**
     * Miscellaneous tests
