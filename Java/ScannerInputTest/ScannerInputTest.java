@@ -12,7 +12,7 @@
  */
 
 import java.util.*;
-    
+
 public class ScannerInputTest {
     public static void main(String[] args) throws InputMismatchException {
         Scanner scanner = new Scanner(System.in);
