@@ -20,6 +20,8 @@ written by me, an inexperienced amateur - you have been warned :-)
     * Add buttons to a Java GUI, do something when they are clicked, practice for my Hangman game! Demonstrates extending classes, JButtons, JFrames and JPanels
 * 📁 **ConvertFToC**
     * Converts Fahrenheit to Celsius using DecimalFormat
+* 📁 **DisableButtonsTest**
+    * Demonstrates enabling/disabling an ArrayList of JButton objects simultaneously
 * 📁 **Fibonacci**
     * Calculating some numbers in the Fibonacci sequence and outputting the result
 * 📁 **HashMapTest**
