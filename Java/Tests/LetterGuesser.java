@@ -30,7 +30,7 @@ public class LetterGuesser {
 
         // Main loop, call makeGuess() while the concealedWord doesn't match secretWord
         do {
-            // Read in a character from the terminal
+            // Read in a character from the terminal, convert to upper case
             char testChar = scanner.next().toUpperCase().charAt(0);
                 
             makeGuess(testChar);
