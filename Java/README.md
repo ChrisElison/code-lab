@@ -24,6 +24,8 @@ written by me, an inexperienced amateur - you have been warned :-)
     * Demonstrates enabling/disabling an ArrayList of JButton objects simultaneously
 * 📁 **Fibonacci**
     * Calculating some numbers in the Fibonacci sequence and outputting the result
+* 📁 **HangmanGame**
+    * Recreating an old college assignment - Java Hangman! Check out my video where I write this code on my YouTube Channel!
 * 📁 **HashMapTest**
     * Testing HashMaps to represent a player's inventory in Java, they're basically associative array, very useful
 * 📁 **MenuTest**
