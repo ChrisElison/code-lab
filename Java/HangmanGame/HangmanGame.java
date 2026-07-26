@@ -15,9 +15,9 @@ import java.io.*;
 import java.util.*;
 
 public class HangmanGame {
-    public static final String textFilePath = "words.txt";
+    public static final String textFilePath = "words.txt"; // Random words text file
     public static File f = new File(textFilePath);
-    public static ArrayList<String> wordArray = new ArrayList<String>();
+    public static ArrayList<String> wordArray = new ArrayList<String>(); // Random words array
         
     public static String secretWord = ""; // Secret word to guess
     public static String concealedWord = "";        // Concealed word to be revealed 
@@ -26,8 +26,12 @@ public class HangmanGame {
     public static int correctHits = 0;  // Used to track if a guess is correct
 
     public static void main(String[] args) {
+        // Loadwords from file into array
         getWords();
+
+        // Get a random secret word
         secretWord = getRandomWord();
+
         //System.out.println("Debug: Found " + wordArray.size() + " words!");
 
         // Set the concealedArr array to all underscores characters
