@@ -15,8 +15,12 @@ import java.io.*;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.Image;
 import javax.swing.*;
 import javax.swing.event.*;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class HangmanGame extends JFrame implements ActionListener {
     public static final String textFilePath = "words.txt"; // Random words text file
@@ -46,9 +50,9 @@ public class HangmanGame extends JFrame implements ActionListener {
     public HangmanGame() {
         this.setTitle("Java HangMan by Chris Elison");
 
-        //this.setSize(450, 800);
+        this.setSize(500, 680);
 
-        //this.setResizable(false);
+        this.setResizable(false);
 
         this.setLocationRelativeTo(null);
 
@@ -74,7 +78,7 @@ public class HangmanGame extends JFrame implements ActionListener {
         
         /* New */
         contentPanel = new JPanel();
-        contentPanel.setLayout(new GridLayout(3, 1));
+        contentPanel.setLayout(new GridLayout(2, 1)); /* 3 1*/
 
         canvasPanel = new JPanel();
         wordPanel = new JPanel();
@@ -84,10 +88,10 @@ public class HangmanGame extends JFrame implements ActionListener {
         kbMid = new JPanel();
         kbBot = new JPanel();
 
-        keyboardPanel.setLayout(new GridLayout(3, 1));
+        keyboardPanel.setLayout(new GridLayout(4, 1)); /*3 1*/
 
         contentPanel.add(canvasPanel);
-        contentPanel.add(wordPanel);
+        //contentPanel.add(wordPanel);
         contentPanel.add(keyboardPanel);
 
         testLabel = new JLabel("Canvas here");
@@ -99,9 +103,19 @@ public class HangmanGame extends JFrame implements ActionListener {
         testLabel4 = new JLabel("Keyboard here - ASDFGHJKL");
         testLabel5 = new JLabel("Keyboard here - ZXCVBNM");
 
-        canvasPanel.add(testLabel);
+        //canvasPanel.add(testLabel);
+       
+        try {
+            BufferedImage wPic = ImageIO.read(this.getClass().getResource("hangmanbg1.jpg"));
+            JLabel wIcon = new JLabel(new ImageIcon(wPic));
+            canvasPanel.add(wIcon);
+        } catch (IOException e) {
+
+        }
+
         wordPanel.add(testLabel2);
 
+        keyboardPanel.add(wordPanel);
         keyboardPanel.add(kbTop);
         keyboardPanel.add(kbMid);
         keyboardPanel.add(kbBot);
@@ -112,7 +126,7 @@ public class HangmanGame extends JFrame implements ActionListener {
         
         this.setContentPane(contentPanel);
 
-        this.pack();
+        //this.pack();
 
         /* */
 
@@ -126,14 +140,16 @@ public class HangmanGame extends JFrame implements ActionListener {
         getWords();
 
         // Get a random secret word
-        secretWord = getRandomWord();
+        //secretWord = getRandomWord();
+
+        newGame();
 
         //System.out.println("Debug: Found " + wordArray.size() + " words!");
 
         // Set the concealedArr array to all underscores characters
-        for (int i=0; i<secretWord.length(); i++) {
-            concealedArr.add('_');
-        }
+        //for (int i=0; i<secretWord.length(); i++) {
+        //    concealedArr.add('_');
+        //}
 
         Scanner scanner = new Scanner(System.in);
 
@@ -171,7 +187,7 @@ public class HangmanGame extends JFrame implements ActionListener {
         }
 
         // Reset the concealedWord string
-        concealedWord = "";
+        concealedWord = " ";
 
         // Loop through the concealedArr array, set concealedWord String to mirror the array
         concealedArr.forEach(x -> { concealedWord += x+" "; });
@@ -219,7 +235,7 @@ public class HangmanGame extends JFrame implements ActionListener {
 
         System.out.println("New secret word: " + secretWord);
         guesses = 10;
-        concealedWord = "";
+        concealedWord = " ";
         correctHits = 0;       
 
         concealedArr.clear();
