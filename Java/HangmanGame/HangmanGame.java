@@ -74,8 +74,6 @@ public class HangmanGame extends JFrame implements ActionListener {
         // Get a random secret word
         secretWord = getRandomWord();
 
-        //System.out.println("Debug: Found " + wordArray.size() + " words!");
-
         // Set the concealedArr array to all underscores characters
         for (int i=0; i<secretWord.length(); i++) {
             concealedArr.add('_');

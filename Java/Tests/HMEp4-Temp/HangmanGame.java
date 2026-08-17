@@ -15,9 +15,11 @@ import java.io.*;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.Image;
+import java.awt.Image;       /* NEW */
 import javax.swing.*;
 import javax.swing.event.*;
+
+/* NEW */
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -142,7 +144,7 @@ public class HangmanGame extends JFrame implements ActionListener {
         // Get a random secret word
         //secretWord = getRandomWord();
 
-        newGame();
+        newGame();  /* NEW */
 
         //System.out.println("Debug: Found " + wordArray.size() + " words!");
 
