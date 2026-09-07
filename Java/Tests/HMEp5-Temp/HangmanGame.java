@@ -20,14 +20,33 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.swing.border.EmptyBorder; /* NEW */
 
 public class HangmanGame extends JFrame implements ActionListener {
+    /* New */
+    public static enum GameState {
+        GAME_ACTIVE,
+        GAME_WON,
+        GAME_LOST
+    }
+
+    public static GameState gameState = GameState.GAME_ACTIVE;
+    
+    public static String[] topRowKeys = {"Q","W","E","R","T","Y","U","I","O","P"};
+    public static String[] midRowKeys = {"A","S","D","F","G","H","J","K","L"};
+    public static String[] botRowKeys = {"Z","X","C","V","B","N","M"};
+
+    public static ArrayList<HangmanButton> arrTopKeys = new ArrayList<HangmanButton>();
+    public static ArrayList<HangmanButton> arrMidKeys = new ArrayList<HangmanButton>();
+    public static ArrayList<HangmanButton> arrBotKeys = new ArrayList<HangmanButton>();
+    /* */
+
     public static final String textFilePath = "words.txt";  // Random words text file
     public static File f = new File(textFilePath);
     public static ArrayList<String> wordArray = new ArrayList<String>();    // Random words array
         
-    public static String secretWord = "";   // Secret word to guess
-    public static String concealedWord = "";    // Concealed word to be revealed 
+    public static String secretWord = "";    // Secret word to guess
+    public static String concealedWord = ""; // Concealed word to be revealed 
     public static ArrayList<Character> concealedArr = new ArrayList<Character>();   // Concealed char array
     public static int guesses = 10;     // Number of guesses remaining
     public static int correctHits = 0;  // Used to track if a guess is correct
@@ -37,7 +56,7 @@ public class HangmanGame extends JFrame implements ActionListener {
     public static JMenuItem menuItem;
 
     public static JPanel contentPanel;          // Main GUI JPanel
-    public static HangmanCanvas canvasPanel;    // JPanel used for Grpahics2D canvas (Gallows)
+    public static HangmanCanvas canvasPanel;    // JPanel used for Graphics2D canvas (Gallows)
     public static JPanel wordPanel;             // Concealed word JPanel
     public static JPanel keyboardPanel;         // JPanel for keyboard keys
     public static JPanel kbTop, kbMid, kbBot;   // Keyboard key rows
@@ -51,7 +70,7 @@ public class HangmanGame extends JFrame implements ActionListener {
         this.setTitle("Java HangMan by Chris Elison");
 
         // Set window size
-        this.setSize(500, 680);
+        this.setSize(560, 680); /* NEW */
 
         // Prevent window from being resized
         this.setResizable(false);
@@ -83,17 +102,57 @@ public class HangmanGame extends JFrame implements ActionListener {
         
         contentPanel = new JPanel();
         contentPanel.setLayout(new GridLayout(2, 1));
+        contentPanel.setBorder(new EmptyBorder(10, 10, 10, 10)); /* NEW! */
 
         canvasPanel = new HangmanCanvas();
         wordPanel = new JPanel();
         keyboardPanel = new JPanel();
 
-        kbTop = new JPanel();
-        kbMid = new JPanel();
-        kbBot = new JPanel();
+        //kbTop = new JPanel();
+        //kbMid = new JPanel();
+        //kbBot = new JPanel();
+        
+        /* NEW */        
+        kbTop = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        kbMid = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        kbBot = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        keyboardPanel.setLayout(new GridLayout(4, 1));
+        /* NEW */
+        /*
+        GridLayout gridLayout = new GridLayout(1, 10);
+        gridLayout.setHgap(10);
+        gridLayout.setVgap(10);
+        kbTop.setLayout(gridLayout);
+        kbTop.setBorder(new EmptyBorder(10, 10, 10, 10));
+        
+        kbMid.setLayout(new GridLayout(1, 9));
+        kbMid.setBorder(new EmptyBorder(10, 10, 10, 10));
+        kbBot.setLayout(new GridLayout(1, 7));
+        kbBot.setBorder(new EmptyBorder(10, 10, 10, 10));
+        */
 
+        // Add top row buttons
+        for (int i=0; i<topRowKeys.length; i++) { arrTopKeys.add(new HangmanButton(topRowKeys[i])); }
+
+        for (int i=0; i<arrTopKeys.size(); i++) { kbTop.add(arrTopKeys.get(i)); }
+
+        // Add mid row buttons
+        for (int i=0; i<midRowKeys.length; i++) { arrMidKeys.add(new HangmanButton(midRowKeys[i])); }
+
+        for (int i=0; i<arrMidKeys.size(); i++) { kbMid.add(arrMidKeys.get(i)); }
+        
+        // Add bot row buttons
+        for (int i=0; i<botRowKeys.length; i++) { arrBotKeys.add(new HangmanButton(botRowKeys[i])); }
+        
+        for (int i=0; i<arrBotKeys.size(); i++) { kbBot.add(arrBotKeys.get(i)); }
+        /* */
+
+        /* NEW */
+        //keyboardPanel.setLayout(new GridLayout(4, 1));
+        keyboardPanel.setLayout(new BoxLayout(keyboardPanel, BoxLayout.Y_AXIS));
+        /* */
+        
+        
         contentPanel.add(canvasPanel);
         contentPanel.add(keyboardPanel);
 
@@ -103,9 +162,9 @@ public class HangmanGame extends JFrame implements ActionListener {
         testLabel2.setFont(new Font(Font.MONOSPACED, Font.BOLD, 36));
 
         // TODO: Delete these labels
-        testLabel3 = new JLabel("Q W E R T Y U I O P");
-        testLabel4 = new JLabel("A S D F G H J K L");
-        testLabel5 = new JLabel("Z X C V B N M");
+        // testLabel3 = new JLabel("Q W E R T Y U I O P");
+        //testLabel4 = new JLabel("A S D F G H J K L");
+        //testLabel5 = new JLabel("Z X C V B N M");
         
         // Add a background image as a JLabel to the canvasPanel JPanel - Code from Google
         try {
@@ -124,10 +183,10 @@ public class HangmanGame extends JFrame implements ActionListener {
         keyboardPanel.add(kbMid);
         keyboardPanel.add(kbBot);
 
-        // TODO: Delete labels, add keyboard buttons
-        kbTop.add(testLabel3);
-        kbMid.add(testLabel4);
-        kbBot.add(testLabel5);
+        // TODO: Delete
+        //kbTop.add(testLabel3);
+        //kbMid.add(testLabel4);
+        //kbBot.add(testLabel5);
 
         // Set main content for the window
         this.setContentPane(contentPanel);
@@ -229,6 +288,11 @@ public class HangmanGame extends JFrame implements ActionListener {
     }
 
     public static void newGame() {
+        /* NEW */
+        // Reset game state
+        gameState = GameState.GAME_ACTIVE;
+        /* */
+
         /* TODO: Reset UI, get new word, reset guesses */
         secretWord = getRandomWord();
 
@@ -238,12 +302,12 @@ public class HangmanGame extends JFrame implements ActionListener {
 
         concealedArr.clear();   // Clear the concealedArr array
         
-        // Blank the conealedArr array with underscores
+        // Blank the concealedArr array with underscores
         for (int i=0; i<secretWord.length(); i++) {
             concealedArr.add('_');
         }
 
-        // Set the conealedWord as the concealedArr but with spaces between letters
+        // Set the concealedWord as the concealedArr but with spaces between letters
         concealedArr.forEach(x -> { concealedWord += x + " ";});
 
         // Update the concealed word label
