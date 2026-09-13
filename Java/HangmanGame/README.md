@@ -24,6 +24,8 @@ chris@Mimas:~/HangmanGame$ java HangmanGame
 ## Contents:
 * 📝 **HangmanGame.java**
     * Main program source file
+* 📝 **HangmanButton.java**
+    * Class for buttons to guess letters in words
 * 📝 **HangmanCanvas.java**
     * Code for the Graphics2D JPanel where we draw the hangman graphics
 * 📝 **hangmanbg.jpg**

@@ -4,7 +4,7 @@
  * Main code file for my simple Swing Hangman game.
  *
  * Date created: 11 July 2026 16:06
- * Date modified: 27 August 2026 17:31
+ * Date modified: 13 September 2026 17:00
  *
  * Copyright (c) 2026 Christopher Elison <chriselison.uk>
  * Licensed under the MIT License.
@@ -52,7 +52,7 @@ public class HangmanGame extends JFrame implements ActionListener {
     public static JPanel kbTop, kbMid, kbBot;   // Keyboard key rows
 
     // Various JLabels (Clean up)
-    public static JLabel testLabel, testLabel2, testLabel3, testLabel4, testLabel5;
+    public static JLabel testLabel2;
 
     // Constructor method for game
     public HangmanGame() {
@@ -157,7 +157,7 @@ public class HangmanGame extends JFrame implements ActionListener {
         // Start new game, reset UI
         newGame();
 
-        // TODO: Delete this for Ep 5. Scanner object to read text from the terminal
+        // TODO: Delete this for Ep 6. Scanner object to read text from the terminal
         Scanner scanner = new Scanner(System.in);
 
         // Do this loop while the concealedWord string does not equal secretWord

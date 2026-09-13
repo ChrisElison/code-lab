@@ -1,3 +1,16 @@
+/*
+ * Java Hangman Game - HangmanButton.java
+ *
+ * Hangman button class.
+ *
+ * Date created: 13 September 2026 17:00
+ * Date modified: 13 September 2026 17:00
+ *
+ * Copyright (c) 2026 Christopher Elison <chriselison.uk>
+ * Licensed under the MIT License.
+ *
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
