@@ -4,7 +4,7 @@
  * Main code file for my simple Swing Hangman game.
  *
  * Date created: 11 July 2026 16:06
- * Date modified: 13 September 2026 17:00
+ * Date modified: 14 September 2026 13:58
  *
  * Copyright (c) 2026 Christopher Elison <chriselison.uk>
  * Licensed under the MIT License.
@@ -22,14 +22,15 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 public class HangmanGame extends JFrame implements ActionListener {
+    // Arrays to hold keyboard key labels
     public static String[] topRowKeys = {"Q","W","E","R","T","Y","U","I","O","P"};
     public static String[] midRowKeys = {"A","S","D","F","G","H","J","K","L"};
     public static String[] botRowKeys = {"Z","X","C","V","B","N","M"};
 
+    // ArrayLists to hold 3 rows of buttons
     public static ArrayList<HangmanButton> arrTopKeys = new ArrayList<HangmanButton>();
     public static ArrayList<HangmanButton> arrMidKeys = new ArrayList<HangmanButton>();
     public static ArrayList<HangmanButton> arrBotKeys = new ArrayList<HangmanButton>();
-
 
     public static final String textFilePath = "words.txt";  // Random words text file
     public static File f = new File(textFilePath);
@@ -41,6 +42,7 @@ public class HangmanGame extends JFrame implements ActionListener {
     public static int guesses = 10;     // Number of guesses remaining
     public static int correctHits = 0;  // Used to track if a guess is correct
 
+    // Menu stuff
     public static JMenuBar menuBar;
     public static JMenu menu;
     public static JMenuItem menuItem;
@@ -90,6 +92,7 @@ public class HangmanGame extends JFrame implements ActionListener {
 
         this.setJMenuBar(menuBar);
         
+        // Main container panel for the game window
         contentPanel = new JPanel();
         contentPanel.setLayout(new GridLayout(2, 1));
 
@@ -97,12 +100,12 @@ public class HangmanGame extends JFrame implements ActionListener {
         wordPanel = new JPanel();
         keyboardPanel = new JPanel();
 
+        // Set the keyboard row JPanels as FlowLayout
         kbTop = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
         kbMid = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
         kbBot = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        
-
+        // Add HangmanButton buttons to ArrayLists, add buttons to keyboard row JPanels
         for (int i=0; i<topRowKeys.length; i++) { arrTopKeys.add(new HangmanButton(topRowKeys[i])); }
         for (int i=0; i<arrTopKeys.size(); i++) { kbTop.add(arrTopKeys.get(i)); }
 
@@ -112,16 +115,13 @@ public class HangmanGame extends JFrame implements ActionListener {
         for (int i=0; i<botRowKeys.length; i++) { arrBotKeys.add(new HangmanButton(botRowKeys[i])); }
         for (int i=0; i<arrBotKeys.size(); i++) { kbBot.add(arrBotKeys.get(i)); }
 
-
-
+        // Set keyboardPanel container JPanel as BoxLayout
         keyboardPanel.setLayout(new BoxLayout(keyboardPanel, BoxLayout.Y_AXIS));
 
         contentPanel.add(canvasPanel);
         contentPanel.add(keyboardPanel);
 
-        testLabel = new JLabel("Canvas here");
         testLabel2 = new JLabel("Concealed word");
-
         testLabel2.setFont(new Font(Font.MONOSPACED, Font.BOLD, 36));
         
         // Add a background image as a JLabel to the canvasPanel JPanel - Code from Google
@@ -226,6 +226,7 @@ public class HangmanGame extends JFrame implements ActionListener {
             }
 
         } else {
+            // File not found
             System.out.println("Error: Couldn't find file: " +textFilePath);
             System.exit(0);
         }
