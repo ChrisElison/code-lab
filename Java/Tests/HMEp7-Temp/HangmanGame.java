@@ -4,7 +4,7 @@
  * Main code file for my simple Swing Hangman game.
  *
  * Date created: 11 July 2026 16:06
- * Date modified: 23 September 2026 17:25
+ * Date modified: 26 September 2026 19:33
  *
  * Copyright (c) 2026 Christopher Elison <chriselison.uk>
  * Licensed under the MIT License.
@@ -64,6 +64,8 @@ public class HangmanGame extends JFrame implements ActionListener {
     // Various JLabels (Clean up)
     public static JLabel testLabel2;
 
+    public static Image image; /* NEW */
+    
     // Constructor method for game
     public HangmanGame() {
         // Set window title
@@ -104,7 +106,13 @@ public class HangmanGame extends JFrame implements ActionListener {
         contentPanel = new JPanel();
         contentPanel.setLayout(new GridLayout(2, 1));
 
-        canvasPanel = new HangmanCanvas();
+        try {
+            image = ImageIO.read(new File("hangmanbg1.jpg")); /* NEW */
+        } catch (IOException e) {
+            System.out.println("Error loading image!");
+            System.exit(0);
+        }
+        canvasPanel = new HangmanCanvas(image); /* NEW */
         wordPanel = new JPanel();
         keyboardPanel = new JPanel();
 
@@ -133,6 +141,7 @@ public class HangmanGame extends JFrame implements ActionListener {
         testLabel2.setFont(new Font(Font.MONOSPACED, Font.BOLD, 36));
         
         // Add a background image as a JLabel to the canvasPanel JPanel - Code from Google
+        /*
         try {
             BufferedImage pic = ImageIO.read(this.getClass().getResource("hangmanbg.jpg"));
             JLabel icon = new JLabel(new ImageIcon(pic));
@@ -141,6 +150,7 @@ public class HangmanGame extends JFrame implements ActionListener {
             System.out.println("Error: Failed to load image!");
             System.exit(0);
         }
+        */
 
         wordPanel.add(testLabel2);
         
