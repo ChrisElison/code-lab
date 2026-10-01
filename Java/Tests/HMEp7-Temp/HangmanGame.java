@@ -222,6 +222,10 @@ public class HangmanGame extends JFrame implements ActionListener {
         // Update the concealed word label, update
         testLabel2.setText(concealedWord);
         wordPanel.revalidate();
+        
+        /* NEW */
+        canvasPanel.repaint();
+        /**/
     }
 
     public static void getWords() {
@@ -301,6 +305,12 @@ public class HangmanGame extends JFrame implements ActionListener {
         arrMidKeys.forEach( x -> { x.setEnabled(false); } );
         arrBotKeys.forEach( x -> { x.setEnabled(false); } );
     }
+    
+    /* NEW */
+    public static int getGuesses() {
+        return guesses;
+    }
+    /**/
 
     public void actionPerformed(ActionEvent e) {
         // Action listener for the menu items

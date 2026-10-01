@@ -39,9 +39,49 @@ public class HangmanCanvas extends JPanel {
 
         // Draw the background image
         g.drawImage(image, 0, 0, this);
-
+        
         g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
-        g2d.drawString("Java Hangman Test!", 200, 300);
+        
+        int guessesRemaining = HangmanGame.getGuesses();
+        
+        switch(guessesRemaining) {
+            case 10:
+                g2d.drawString("10 guesses remaining!", 200, 300);
+                break;
+            case 9:
+                g2d.drawString("9 guesses remaining!", 200, 300);
+                break;
+            case 8:
+                g2d.drawString("8 guesses remaining!", 200, 300);
+                break;
+            case 7:
+                g2d.drawString("7 guesses remaining!", 200, 300);
+                break;
+            case 6:
+                g2d.drawString("6 guesses remaining!", 200, 300);
+                break;
+            case 5:
+                g2d.drawString("5 guesses remaining!", 200, 300);
+                break;
+            case 4:
+                g2d.drawString("4 guesses remaining!", 200, 300);
+                break;
+            case 3:
+                g2d.drawString("3 guesses remaining!", 200, 300);
+                break;
+            case 2:
+                g2d.drawString("2 guesses remaining!", 200, 300);
+                break;
+            case 1:
+                g2d.drawString("1 guess remaining!", 200, 300);
+                break;
+            case 0:
+                g2d.drawString("Game over!", 200, 300);
+                break;
+        }
+        
+        //g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
+        //g2d.drawString("Java Hangman Test!", 200, 300);
     }
     /* */
 }
