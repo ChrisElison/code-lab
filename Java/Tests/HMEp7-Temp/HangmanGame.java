@@ -4,7 +4,7 @@
  * Main code file for my simple Swing Hangman game.
  *
  * Date created: 11 July 2026 16:06
- * Date modified: 26 September 2026 19:33
+ * Date modified: 02 October 2026 14:57
  *
  * Copyright (c) 2026 Christopher Elison <chriselison.uk>
  * Licensed under the MIT License.
@@ -309,6 +309,10 @@ public class HangmanGame extends JFrame implements ActionListener {
     /* NEW */
     public static int getGuesses() {
         return guesses;
+    }
+    
+    public static GameState getGameState() {
+        return gameState;
     }
     /**/
 
