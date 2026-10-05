@@ -20,15 +20,54 @@ public class HangmanCanvas extends JPanel {
     public Graphics2D g2d;
     
     private final Image image; // New
+    private int[] supportPolyX = {200, 250, 260, 200};
+    private int[] supportPolyY = {150, 100, 100, 160};
 
     public HangmanCanvas(Image image) {
         this.image = image; // New
     }
     
     public void drawGallowsPost() {
-        g2d.setColor(new Color(77, 42, 17));
-        g2d.drawRect(200, 100, 10, 180);
-        g2d.fillRect(200, 100, 10, 180);
+        g2d.setColor(new Color(196, 181, 130));
+        g2d.drawRect(200, 100, 10, 190); /* x, y, width, height */
+        g2d.fillRect(200, 100, 10, 190);
+    }
+    
+    public void drawGallowsBeam() {
+        g2d.setColor(new Color(196, 181, 130));
+        g2d.drawRect(200, 100, 120, 10);
+        g2d.fillRect(200, 100, 120, 10);
+    }
+    
+    public void drawGallowsSupport() {
+        g2d.setColor(new Color(196, 181, 130));
+        g2d.drawPolygon(supportPolyX, supportPolyY, 4);
+        g2d.fillPolygon(supportPolyX, supportPolyY, 4);
+    }
+    
+    public void drawRope() {
+        g2d.setColor(new Color(20, 23, 18));
+        g2d.drawLine(290, 110, 290, 150);
+    }
+    
+    public void drawHead() {
+        g2d.setColor(new Color(5, 5, 5));
+        g2d.drawOval(277, 150, 25, 25);
+    }
+    
+    public void drawBody() {
+        g2d.setColor(new Color(5, 5, 5));
+        g2d.drawLine(290, 175, 290, 250);
+    }
+    
+    public void drawLegs() {
+        g2d.setColor(new Color(5, 5, 5));
+        g2d.drawLine(290, 250, 270, 270);
+        g2d.drawLine(290, 250, 310, 270);
+    }
+    
+    public void drawArms() {
+        
     }
 
     /* NEW */
@@ -45,6 +84,10 @@ public class HangmanCanvas extends JPanel {
         // 2. Enable Fractional Metrics for better character positioning (Google)
         g2d.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, 
                          RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+        
+        // Enable Anti-aliasing for shapes
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                             RenderingHints.VALUE_ANTIALIAS_ON);
 
         // Draw the background image
         g2d.drawImage(image, 0, 0, this);
@@ -63,30 +106,81 @@ public class HangmanCanvas extends JPanel {
                 break;
             case 8:
                 g2d.drawString("8 guesses remaining!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
                 break;
             case 7:
                 g2d.drawString("7 guesses remaining!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
+                drawGallowsSupport();
                 break;
             case 6:
                 g2d.drawString("6 guesses remaining!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
+                drawGallowsSupport();
+                drawRope();
                 break;
             case 5:
                 g2d.drawString("5 guesses remaining!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
+                drawGallowsSupport();
+                drawRope();
+                drawHead();
                 break;
             case 4:
                 g2d.drawString("4 guesses remaining!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
+                drawGallowsSupport();
+                drawRope();
+                drawHead();
+                drawBody();
                 break;
             case 3:
                 g2d.drawString("3 guesses remaining!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
+                drawGallowsSupport();
+                drawRope();
+                drawHead();
+                drawBody();
+                drawLegs();
                 break;
             case 2:
                 g2d.drawString("2 guesses remaining!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
+                drawGallowsSupport();
+                drawRope();
+                drawHead();
+                drawBody();
+                drawLegs();
+                drawArms();
                 break;
             case 1:
                 g2d.drawString("1 guess remaining!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
+                drawGallowsSupport();
+                drawRope();
+                drawHead();
+                drawBody();
+                drawLegs();
+                drawArms();
                 break;
             case 0:
                 g2d.drawString("Game over!", 15, 300);
+                drawGallowsPost();
+                drawGallowsBeam();
+                drawGallowsSupport();
+                drawRope();
+                drawHead();
+                drawBody();
+                drawLegs();
+                drawArms();
                 break;
         }
         
