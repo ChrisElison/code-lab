@@ -4,7 +4,7 @@
  * Canvas class for my Java Hangman game
  *
  * Date created: 22 August 2026 17:03
- * Date modified: 02 October 2026 14:56
+ * Date modified: 06 October 2026 18:45
  *
  * Copyright (c) 2026 Christopher Elison <chriselison.uk>
  * Licensed under the MIT License.
@@ -67,7 +67,15 @@ public class HangmanCanvas extends JPanel {
     }
     
     public void drawArms() {
-        
+        g2d.setColor(new Color(5, 5, 5));
+        g2d.drawLine(290, 200, 270, 180);
+        g2d.drawLine(290, 200, 310, 180);
+    }
+    
+    public void drawFace() {
+        g2d.setFont(new Font("Noto Sans", Font.PLAIN, 10));
+        g2d.drawString(".  .", 282, 160);
+        g2d.drawString("O", 285, 172);
     }
 
     /* NEW */
@@ -94,104 +102,109 @@ public class HangmanCanvas extends JPanel {
         
         g2d.setFont(new Font("Noto Sans", Font.PLAIN, 12));
         
-        int guessesRemaining = HangmanGame.getGuesses();
-        
-        switch(guessesRemaining) {
-            case 10:
-                g2d.drawString("10 guesses remaining!", 15, 300);
-                break;
-            case 9:
-                g2d.drawString("9 guesses remaining!", 15, 300);
-                drawGallowsPost();
-                break;
-            case 8:
-                g2d.drawString("8 guesses remaining!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                break;
-            case 7:
-                g2d.drawString("7 guesses remaining!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                drawGallowsSupport();
-                break;
-            case 6:
-                g2d.drawString("6 guesses remaining!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                drawGallowsSupport();
-                drawRope();
-                break;
-            case 5:
-                g2d.drawString("5 guesses remaining!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                drawGallowsSupport();
-                drawRope();
-                drawHead();
-                break;
-            case 4:
-                g2d.drawString("4 guesses remaining!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                drawGallowsSupport();
-                drawRope();
-                drawHead();
-                drawBody();
-                break;
-            case 3:
-                g2d.drawString("3 guesses remaining!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                drawGallowsSupport();
-                drawRope();
-                drawHead();
-                drawBody();
-                drawLegs();
-                break;
-            case 2:
-                g2d.drawString("2 guesses remaining!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                drawGallowsSupport();
-                drawRope();
-                drawHead();
-                drawBody();
-                drawLegs();
-                drawArms();
-                break;
-            case 1:
-                g2d.drawString("1 guess remaining!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                drawGallowsSupport();
-                drawRope();
-                drawHead();
-                drawBody();
-                drawLegs();
-                drawArms();
-                break;
-            case 0:
-                g2d.drawString("Game over!", 15, 300);
-                drawGallowsPost();
-                drawGallowsBeam();
-                drawGallowsSupport();
-                drawRope();
-                drawHead();
-                drawBody();
-                drawLegs();
-                drawArms();
-                break;
-        }
-        
-        g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
-        
-        if (HangmanGame.getGameState() == HangmanGame.GameState.GAME_LOST) {
-            g2d.drawString("LOL YOU FOOKEN NUBCAKE!", 40, 40);
-        }
-        
-        if (HangmanGame.getGameState() == HangmanGame.GameState.GAME_WON) {
-            g2d.drawString("YUO ARE A WINRAR!!", 40, 40);
+        if (HangmanGame.getGameState() == HangmanGame.GameState.GAME_ACTIVE) {
+            int guessesRemaining = HangmanGame.getGuesses();
+            
+            switch(guessesRemaining) {
+                case 10:
+                    g2d.drawString("10 guesses remaining!", 15, 300);
+                    break;
+                case 9:
+                    g2d.drawString("9 guesses remaining!", 15, 300);
+                    drawGallowsPost();
+                    break;
+                case 8:
+                    g2d.drawString("8 guesses remaining!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    break;
+                case 7:
+                    g2d.drawString("7 guesses remaining!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    drawGallowsSupport();
+                    break;
+                case 6:
+                    g2d.drawString("6 guesses remaining!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    drawGallowsSupport();
+                    drawRope();
+                    break;
+                case 5:
+                    g2d.drawString("5 guesses remaining!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    drawGallowsSupport();
+                    drawRope();
+                    drawHead();
+                    break;
+                case 4:
+                    g2d.drawString("4 guesses remaining!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    drawGallowsSupport();
+                    drawRope();
+                    drawHead();
+                    drawBody();
+                    break;
+                case 3:
+                    g2d.drawString("3 guesses remaining!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    drawGallowsSupport();
+                    drawRope();
+                    drawHead();
+                    drawBody();
+                    drawLegs();
+                    break;
+                case 2:
+                    g2d.drawString("2 guesses remaining!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    drawGallowsSupport();
+                    drawRope();
+                    drawHead();
+                    drawBody();
+                    drawLegs();
+                    drawArms();
+                    break;
+                case 1:
+                    g2d.drawString("1 guess remaining!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    drawGallowsSupport();
+                    drawRope();
+                    drawHead();
+                    drawBody();
+                    drawLegs();
+                    drawArms();
+                    drawFace();
+                    break;
+                case 0:
+                    g2d.drawString("Game over!", 15, 300);
+                    drawGallowsPost();
+                    drawGallowsBeam();
+                    drawGallowsSupport();
+                    drawRope();
+                    drawHead();
+                    drawBody();
+                    drawLegs();
+                    drawArms();
+                    drawFace();
+                    break;
+            }
+        } else if (HangmanGame.getGameState() == HangmanGame.GameState.GAME_LOST) {
+            g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
+            g2d.drawString("GAME OVER, YOU LOSE!", 65, 40);
+            
+            // TODO: Draw dead stickman face
+        } else {
+            g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
+            g2d.drawString("CONGRATULATIONS!", 90, 40);
+            g2d.drawString("YOU WIN!", 180, 80);
+            
+            // TODO: Draw smiley face stickman
         }
         
         //g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
