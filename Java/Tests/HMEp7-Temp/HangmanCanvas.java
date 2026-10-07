@@ -4,7 +4,7 @@
  * Canvas class for my Java Hangman game
  *
  * Date created: 22 August 2026 17:03
- * Date modified: 06 October 2026 18:45
+ * Date modified: 07 October 2026 17:35
  *
  * Copyright (c) 2026 Christopher Elison <chriselison.uk>
  * Licensed under the MIT License.
@@ -195,20 +195,40 @@ public class HangmanCanvas extends JPanel {
                     break;
             }
         } else if (HangmanGame.getGameState() == HangmanGame.GameState.GAME_LOST) {
+            g2d.setColor(new Color(255, 50, 50));
             g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
-            g2d.drawString("GAME OVER, YOU LOSE!", 65, 40);
+            g2d.drawString("GAME OVER, YOU LOSE!", 70, 40);
             
             // TODO: Draw dead stickman face
+            g2d.setColor(new Color(5, 5, 5));
+            g2d.drawOval(250, 150, 85, 85); // Head
+            g2d.drawLine(290, 235, 290, 350); // Body
+            
+            g2d.setFont(new Font("Noto Sans", Font.PLAIN, 18));
+            g2d.drawString("X   X", 275, 195); // Eyes
+            g2d.drawLine(280, 220, 310, 220); // Mouth
+            
+            g2d.drawLine(290, 265, 240, 300); // Arm
+            g2d.drawLine(290, 265, 340, 300); // Arm
+            
+            g2d.drawLine(290, 0, 290, 150); // Noose
         } else {
+            g2d.setColor(new Color(50, 50, 255));
             g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
             g2d.drawString("CONGRATULATIONS!", 90, 40);
             g2d.drawString("YOU WIN!", 180, 80);
             
             // TODO: Draw smiley face stickman
+            g2d.setColor(new Color(5, 5, 5));
+            g2d.drawOval(250, 150, 85, 85); // Head
+            g2d.drawLine(290, 235, 290, 350); // Body
+            
+            g2d.drawArc(270, 195, 40, 30, 180, 180); /* Mouth: Start X, Start Y, Width, Height, Start angle, Arc angle */
+            g2d.drawString(".   .", 265, 195); // Eyes
+            
+            g2d.drawLine(290, 265, 240, 230); // Arm
+            g2d.drawLine(290, 265, 340, 230); // Arm
         }
-        
-        //g2d.setFont(new Font("Noto Sans", Font.BOLD, 36));
-        //g2d.drawString("Java Hangman Test!", 200, 300);
     }
     /* */
 }
