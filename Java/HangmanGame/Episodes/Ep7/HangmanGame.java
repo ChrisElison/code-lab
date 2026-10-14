@@ -4,7 +4,7 @@
  * Main code file for my simple Swing Hangman game.
  *
  * Date created: 11 July 2026 16:06
- * Date modified: 23 September 2026 17:25
+ * Date modified: 11 October 2026 17:00
  *
  * Copyright (c) 2026 Christopher Elison <chriselison.uk>
  * Licensed under the MIT License.

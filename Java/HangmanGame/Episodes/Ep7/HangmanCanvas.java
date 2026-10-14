@@ -4,7 +4,7 @@
  * Canvas class for my Java Hangman game
  *
  * Date created: 22 August 2026 17:03
- * Date modified: 22 August 2026 17:03
+ * Date modified: 11 October 2026 17:00
  *
  * Copyright (c) 2026 Christopher Elison <chriselison.uk>
  * Licensed under the MIT License.
