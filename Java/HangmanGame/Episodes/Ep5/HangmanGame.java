@@ -119,7 +119,7 @@ public class HangmanGame extends JFrame implements ActionListener {
         contentPanel.add(canvasPanel);
         contentPanel.add(keyboardPanel);
 
-        testLabel = new JLabel("Canvas here");
+        //testLabel = new JLabel("Canvas here");
         testLabel2 = new JLabel("Concealed word");
 
         testLabel2.setFont(new Font(Font.MONOSPACED, Font.BOLD, 36));
