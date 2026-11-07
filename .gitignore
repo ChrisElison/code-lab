@@ -14,3 +14,4 @@ secrets.*
 *.jar
 *.so
 *.hex
+YTSecret.java
