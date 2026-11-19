@@ -23,9 +23,11 @@ public class SevenSegTest extends JFrame {
     private static JPanel contentPanel;
 
     public SevenSegTest() {
-        this.setSize(400, 300);
+        this.setTitle("Java 7-Segment Display by Chris Elison");
 
-        this.setResizable(false);
+        this.setSize(500, 300);
+
+        //this.setResizable(false);
         
         // Center window on program staartup
         this.setLocationRelativeTo(null);
@@ -33,7 +35,9 @@ public class SevenSegTest extends JFrame {
         // Close the program if window close button is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        contentPanel = new JPanel();
+        contentPanel = new JPanel(new GridLayout(1, 1));
+        //contentPanel.add(new JLabel("Hello world!"), BorderLayout.NORTH);
+        contentPanel.add(new SegDisplay());
 
         // Set main content for the window
         this.setContentPane(contentPanel);
@@ -42,6 +46,7 @@ public class SevenSegTest extends JFrame {
     }
 
     public static void main(String[] args) {
+        // Check if argument number is supplied
         if (args.length == 0 || Integer.parseInt(args[0]) > 9) {
             System.out.println("Usage: java SevenSegTest [0-9]\n");
             System.exit(0);
